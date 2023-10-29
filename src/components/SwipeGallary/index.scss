@@ -1,0 +1,36 @@
+$galleryHeight: calc(100vh - 110px);
+
+.gallary {
+  width: 100%;
+  max-height: 100%;
+
+  &-container {
+    width: 100%;
+    height: $galleryHeight;
+    overflow-x: auto; // make a horizontal scroll
+    position: relative;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory; // makes swipe effect chips stop photos
+    display: flex;
+
+    &::-webkit-scrollbar { // hide scroll
+      display: none;
+    }
+
+    &-item {
+      min-width: 100%;
+      height: $galleryHeight;
+      text-align: center;
+      scroll-snap-align: start; // scrolls to the starting position of each item
+      scroll-snap-stop: always; // allows you to scroll one item at a time
+      background: url("/loading.gif") center center no-repeat; // loading image
+      background-size: 50px 50px;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: fill; // correct the proportions of the picture
+  }
+}
